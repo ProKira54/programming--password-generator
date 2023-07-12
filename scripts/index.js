@@ -8,7 +8,35 @@
  */
 function generatePassword(length) {
   let pass = 'Not working yet';
-
+  pass = '';
+  lst = [];
+  if(shouldIncludeLowerCase()){
+    lst+=1;
+  }
+  if(shouldIncludeUpperCase()){
+    lst+=2;
+  }
+  if(shouldIncludeNumbers()){
+    lst+=3;
+  }
+  if(shouldIncludeSymbols()){
+    lst+=4;
+  }
+  for(let i = 0;i < length; i++){
+    let choice = randomInt(0,lst.length);
+    if(lst[choice]==1){
+      pass+=randomLowerCase();
+    }
+    else if(lst[choice]==2){
+      pass+=randomUpperCase()
+    }
+    else if(lst[choice]==3){
+      pass+=randomNumber();
+    }
+    else if(lst[choice]==4) {
+      pass+=randomSymbol();
+    }
+  }
   return pass;
 }
 
